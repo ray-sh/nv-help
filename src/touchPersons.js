@@ -1,107 +1,151 @@
-import React from "react";
-class Products extends React.Component {
-  constructor(props) {
-    super(props);
+import React, { useState } from "react";
 
-    //  this.state.products = [];
-    this.state = {};
-    this.state.filterText = "";
-    this.state.products = [
-      {
-        id: 1,
-        category: "Sporting Goods",
-        price: "49.99",
-        qty: 12,
-        name: "football"
-      }
-    ];
-  }
-  handleUserInput(filterText) {
-    this.setState({ filterText: filterText });
-  }
-  handleRowDel(product) {
-    var index = this.state.products.indexOf(product);
-    this.state.products.splice(index, 1);
-    this.setState(this.state.products);
-  }
+function Products(props) {
+//   const [state, setState] = useState({
+//     products: [
+//       {
+//         id: 1,
+//         name: "",
+//         sex: "",
+//         rela: "",
+//         pho1: "",
+//         pho2: "",
+//         addr: "",
+//         note: ""
+//       }
+//     ]
+//   });
 
-  handleAddEvent(evt) {
-    var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-    var product = {
-      id: id,
-      name: "",
-      price: "",
-      category: "",
-      qty: 0
-    };
-    this.state.products.push(product);
-    this.setState(this.state.products);
-  }
+//   function handleRowDel(product) {
+//     var index = state.products.indexOf(product);
+//     let new_state = { ...state };
+//     new_state.products.splice(index, 1);
+//     setState(new_state);
+//   }
 
-  handleProductTable(evt) {
-    var item = {
-      id: evt.target.id,
-      name: evt.target.name,
-      value: evt.target.value
-    };
-    var products = this.state.products.slice();
-    var newProducts = products.map(function(product) {
-      for (var key in product) {
-        if (key == item.name && product.id == item.id) {
-          product[key] = item.value;
-        }
-      }
-      return product;
-    });
-    this.setState({ products: newProducts });
-    //  console.log(this.state.products);
-  }
-  render() {
-    return (
-      <div>
-        {/* <SearchBar
-          filterText={this.state.filterText}
-          onUserInput={this.handleUserInput.bind(this)}
-        /> */}
-        <ProductTable
-          onProductTableUpdate={this.handleProductTable.bind(this)}
-          onRowAdd={this.handleAddEvent.bind(this)}
-          onRowDel={this.handleRowDel.bind(this)}
-          products={this.state.products}
-          filterText={this.state.filterText}
-        />
-      </div>
-    );
-  }
+//   function handleAddEvent(evt) {
+//     var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+//     var _product = {
+//       id: id,
+//       name: "",
+//       sex: "",
+//       rela: "",
+//       pho1: "",
+//       pho2: "",
+//       addr: "",
+//       note: ""
+//     };
+//     let new_products = [...state.products, _product];
+//     setState({ ...state, products: new_products });
+//   }
+
+//   function handleProductTable(evt) {
+//     var item = {
+//       id: evt.target.id,
+//       name: evt.target.name,
+//       value: evt.target.value
+//     };
+//     var products = state.products.slice();
+//     var newProducts = products.map(function(product) {
+//       for (var key in product) {
+//         if (key == item.name && product.id == item.id) {
+//           product[key] = item.value;
+//         }
+//       }
+//       return product;
+//     });
+//     setState({ ...state, products: newProducts });
+//   }
+
+  return (
+    <div>
+      <ProductTable
+        onProductTableUpdate={props.handleProductTable}
+        onRowAdd={props.handleAddEvent}
+        onRowDel={props.handleRowDel}
+        products={props.products}
+      />
+    </div>
+  );
 }
-class SearchBar extends React.Component {
-  handleChange() {
-    this.props.onUserInput(this.refs.filterTextInput.value);
-  }
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={this.props.filterText}
-          ref="filterTextInput"
-          onChange={this.handleChange.bind(this)}
-        />
-      </div>
-    );
-  }
-}
+
+// class Products extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     //  this.state.products = [];
+//     this.state = {};
+//     this.state.filterText = "";
+//     this.state.products = [
+//       {
+//         id: 1,
+//         category: "Sporting Goods",
+//         price: "49.99",
+//         qty: 12,
+//         name: "football"
+//       }
+//     ];
+//   }
+//   handleUserInput(filterText) {
+//     this.setState({ filterText: filterText });
+//   }
+//   handleRowDel(product) {
+//     var index = this.state.products.indexOf(product);
+//     this.state.products.splice(index, 1);
+//     this.setState(this.state.products);
+//   }
+
+//   handleAddEvent(evt) {
+//     var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+//     var product = {
+//       id: id,
+//       name: "",
+//       price: "",
+//       category: "",
+//       qty: 0
+//     };
+//     this.state.products.push(product);
+//     this.setState(this.state.products);
+//   }
+
+//   handleProductTable(evt) {
+//     var item = {
+//       id: evt.target.id,
+//       name: evt.target.name,
+//       value: evt.target.value
+//     };
+//     var products = this.state.products.slice();
+//     var newProducts = products.map(function(product) {
+//       for (var key in product) {
+//         if (key == item.name && product.id == item.id) {
+//           product[key] = item.value;
+//         }
+//       }
+//       return product;
+//     });
+//     this.setState({ products: newProducts });
+//     //  console.log(this.state.products);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <ProductTable
+//           onProductTableUpdate={this.handleProductTable.bind(this)}
+//           onRowAdd={this.handleAddEvent.bind(this)}
+//           onRowDel={this.handleRowDel.bind(this)}
+//           products={this.state.products}
+//           filterText={this.state.filterText}
+//         />
+//       </div>
+//     );
+//   }
+// }
 
 class ProductTable extends React.Component {
   render() {
     var onProductTableUpdate = this.props.onProductTableUpdate;
     var rowDel = this.props.onRowDel;
-    var filterText = this.props.filterText;
     var product = this.props.products.map(function(product) {
-      if (product.name.indexOf(filterText) === -1) {
-        return;
-      }
       return (
         <ProductRow
           onProductTableUpdate={onProductTableUpdate}
@@ -123,10 +167,13 @@ class ProductTable extends React.Component {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>price</th>
-              <th>quantity</th>
-              <th>category</th>
+              <th>姓名</th>
+              <th>性别</th>
+              <th>与病例关系</th>
+              <th>联系方式1</th>
+              <th>联系方式2</th>
+              <th>住址</th>
+              <th>备注</th>
             </tr>
           </thead>
 
@@ -155,24 +202,48 @@ class ProductRow extends React.Component {
         <EditableCell
           onProductTableUpdate={this.props.onProductTableUpdate}
           cellData={{
-            type: "price",
-            value: this.props.product.price,
+            type: "sex",
+            value: this.props.product.sex,
             id: this.props.product.id
           }}
         />
         <EditableCell
           onProductTableUpdate={this.props.onProductTableUpdate}
           cellData={{
-            type: "qty",
-            value: this.props.product.qty,
+            type: "rela",
+            value: this.props.product.rela,
             id: this.props.product.id
           }}
         />
         <EditableCell
           onProductTableUpdate={this.props.onProductTableUpdate}
           cellData={{
-            type: "category",
-            value: this.props.product.category,
+            type: "pho1",
+            value: this.props.product.pho1,
+            id: this.props.product.id
+          }}
+        />
+        <EditableCell
+          onProductTableUpdate={this.props.onProductTableUpdate}
+          cellData={{
+            type: "pho2",
+            value: this.props.product.pho2,
+            id: this.props.product.id
+          }}
+        />
+        <EditableCell
+          onProductTableUpdate={this.props.onProductTableUpdate}
+          cellData={{
+            type: "addr",
+            value: this.props.product.addr,
+            id: this.props.product.id
+          }}
+        />
+        <EditableCell
+          onProductTableUpdate={this.props.onProductTableUpdate}
+          cellData={{
+            type: "note",
+            value: this.props.product.note,
             id: this.props.product.id
           }}
         />

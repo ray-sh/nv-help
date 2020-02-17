@@ -6,7 +6,9 @@ function CommonRadio(props) {
       {props.placeholder}:
       <Radio.Group onChange={props.handleChange} value={props.value}>
         {props.radios.map(r => (
-          <Radio value={r}>{r}</Radio>
+          <Radio key={r} value={r}>
+            {r}
+          </Radio>
         ))}
       </Radio.Group>
     </label>

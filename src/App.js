@@ -8,7 +8,20 @@ const { Step } = Steps;
 
 function App() {
   const [current, setCurrent] = useState(0);
-  const [sample, setSample] = useState({ s1_org: "", s1_name: "" });
+  const [sample, setSample] = useState({
+    products: [
+      {
+        id: 1,
+        name: "",
+        sex: "",
+        rela: "",
+        pho1: "",
+        pho2: "",
+        addr: "",
+        note: ""
+      }
+    ]
+  });
 
   function next() {
     setCurrent(current + 1);
@@ -37,7 +50,49 @@ function App() {
     };
     return change;
   }
+  //接触病人
 
+  function handleRowDel(product) {
+    var index = sample.products.indexOf(product);
+    let new_state = { ...sample };
+    new_state.products.splice(index, 1);
+    setSample(new_state);
+  }
+
+  function handleAddEvent(evt) {
+    var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+    var _product = {
+      id: id,
+      name: "",
+      sex: "",
+      rela: "",
+      pho1: "",
+      pho2: "",
+      addr: "",
+      note: ""
+    };
+    let new_products = [...sample.products, _product];
+    setSample({ ...sample, products: new_products });
+  }
+
+  function handleProductTable(evt) {
+    var item = {
+      id: evt.target.id,
+      name: evt.target.name,
+      value: evt.target.value
+    };
+    var products = sample.products.slice();
+    var newProducts = products.map(function(product) {
+      for (var key in product) {
+        if (key === item.name && product.id === item.id) {
+          product[key] = item.value;
+        }
+      }
+      return product;
+    });
+    setSample({ ...sample, products: newProducts });
+  }
+  //
   const steps = [
     {
       title: "调查单位录入",
@@ -151,7 +206,14 @@ function App() {
     },
     {
       title: "病例密切接触者情况",
-      content: <Products state={sample["touched_persons"]} />
+      content: (
+        <Products
+          onProductTableUpdate={handleProductTable}
+          onRowAdd={handleAddEvent}
+          onRowDel={handleRowDel}
+          products={sample.products}
+        />
+      )
     },
     {
       title: "发病与就诊",
