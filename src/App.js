@@ -1,26 +1,18 @@
 import React, { useState } from "react";
-import { Button, Steps, message } from "antd";
+import { Button, Steps, message, Result } from "antd";
 import { DatePicker } from "antd";
 import TextInput from "./commonInput";
 import CommonRadio from "./commmonRadio";
 import Products from "./touchPersons";
+import MulitpleRadios from "./multipleRadio";
+import { CSVLink, CSVDownload } from "react-csv";
+
 const { Step } = Steps;
 
 function App() {
   const [current, setCurrent] = useState(0);
   const [sample, setSample] = useState({
-    products: [
-      {
-        id: 1,
-        name: "",
-        sex: "",
-        rela: "",
-        pho1: "",
-        pho2: "",
-        addr: "",
-        note: ""
-      }
-    ]
+    touched_persons: []
   });
 
   function next() {
@@ -50,49 +42,7 @@ function App() {
     };
     return change;
   }
-  //接触病人
 
-  function handleRowDel(product) {
-    var index = sample.products.indexOf(product);
-    let new_state = { ...sample };
-    new_state.products.splice(index, 1);
-    setSample(new_state);
-  }
-
-  function handleAddEvent(evt) {
-    var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-    var _product = {
-      id: id,
-      name: "",
-      sex: "",
-      rela: "",
-      pho1: "",
-      pho2: "",
-      addr: "",
-      note: ""
-    };
-    let new_products = [...sample.products, _product];
-    setSample({ ...sample, products: new_products });
-  }
-
-  function handleProductTable(evt) {
-    var item = {
-      id: evt.target.id,
-      name: evt.target.name,
-      value: evt.target.value
-    };
-    var products = sample.products.slice();
-    var newProducts = products.map(function(product) {
-      for (var key in product) {
-        if (key === item.name && product.id === item.id) {
-          product[key] = item.value;
-        }
-      }
-      return product;
-    });
-    setSample({ ...sample, products: newProducts });
-  }
-  //
   const steps = [
     {
       title: "调查单位录入",
@@ -206,26 +156,86 @@ function App() {
     },
     {
       title: "病例密切接触者情况",
-      content: (
-        <Products
-          onProductTableUpdate={handleProductTable}
-          onRowAdd={handleAddEvent}
-          onRowDel={handleRowDel}
-          products={sample.products}
-        />
-      )
+      content: <Products />
     },
     {
       title: "发病与就诊",
-      content: "Last-content"
+      content: (
+        <>
+          <MulitpleRadios
+            name="症状和体征"
+            plainOptions={[
+              "发热",
+              "干咳",
+              "咳痰",
+              "鼻塞",
+              "流涕",
+              "咽痛",
+              "头痛",
+              "乏力",
+              "肌肉酸痛",
+              "关节酸痛",
+              "气促",
+              "呼吸困难",
+              "胸闷",
+              "胸痛",
+              "结膜出血",
+              "恶心",
+              "呕吐",
+              "腹泻",
+              "腹痛"
+            ]}
+            onChange={values => {
+              setSample({ ...sample, s4_states: values });
+            }}
+          />
+          <MulitpleRadios
+            name="并发症"
+            plainOptions={[
+              "脑膜炎",
+              "脑炎",
+              "菌血症/Sepsis",
+              "心肌炎",
+              "急性肺损伤/ARD",
+              "急性肾损伤",
+              "癫痫",
+              "继发细菌性肺炎",
+              "其他"
+            ]}
+            onChange={values => {
+              setSample({ ...sample, s4_illness: values });
+            }}
+          />
+        </>
+      )
     },
+    // {
+    //   title: "危险因素与暴露史",
+    //   content: "Last-content"
+    // },
+    // {
+    //   title: "实验室检测",
+    //   content: "Last-content"
+    // }
     {
-      title: "危险因素与暴露史",
-      content: "Last-content"
-    },
-    {
-      title: "实验室检测",
-      content: "Last-content"
+      title: "下载数据",
+      content: (
+        <Result
+          status="success"
+          title="调查完成"
+          extra={[
+            <CSVLink
+              filename={"diaocha.csv"}
+              className="btn btn-primary"
+              data={[sample]}
+              //onClick={console.log("current state", sample)}
+            >
+              下载调查表
+            </CSVLink>,
+            <Button key="buy">保存到服务器</Button>
+          ]}
+        />
+      )
     }
   ];
 
@@ -238,21 +248,34 @@ function App() {
       </Steps>
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            下一步
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success("完成录入!")}>
-            完成
-          </Button>
-        )}
         {current > 0 && (
           <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
             上一步
           </Button>
         )}
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()}>
+            下一步
+          </Button>
+        )}
+        {/* {current === steps.length - 1 && (
+          <Button
+            type="primary"
+            onClick={() => {
+              message.success("完成录入!");
+            }}
+          >
+            完成
+          </Button>
+        )} */}
+
+        {/* {current === steps.length && (
+          <Result
+            status="success"
+            title="调查完成"
+            extra={[<CSVLink data={[sample]}>下载调查表</CSVLink>]}
+          />
+        )} */}
       </div>
     </div>
   );

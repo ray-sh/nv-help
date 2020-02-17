@@ -1,69 +1,69 @@
 import React, { useState } from "react";
 
 function Products(props) {
-//   const [state, setState] = useState({
-//     products: [
-//       {
-//         id: 1,
-//         name: "",
-//         sex: "",
-//         rela: "",
-//         pho1: "",
-//         pho2: "",
-//         addr: "",
-//         note: ""
-//       }
-//     ]
-//   });
+  const [state, setState] = useState({
+    products: [
+      {
+        id: (+new Date() + Math.floor(Math.random() * 999999)).toString(36),
+        name: "",
+        sex: "",
+        rela: "",
+        pho1: "",
+        pho2: "",
+        addr: "",
+        note: ""
+      }
+    ]
+  });
 
-//   function handleRowDel(product) {
-//     var index = state.products.indexOf(product);
-//     let new_state = { ...state };
-//     new_state.products.splice(index, 1);
-//     setState(new_state);
-//   }
+  function handleRowDel(product) {
+    var index = state.products.indexOf(product);
+    let new_state = { ...state };
+    new_state.products.splice(index, 1);
+    setState(new_state);
+  }
 
-//   function handleAddEvent(evt) {
-//     var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-//     var _product = {
-//       id: id,
-//       name: "",
-//       sex: "",
-//       rela: "",
-//       pho1: "",
-//       pho2: "",
-//       addr: "",
-//       note: ""
-//     };
-//     let new_products = [...state.products, _product];
-//     setState({ ...state, products: new_products });
-//   }
+  function handleAddEvent(evt) {
+    var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+    var _product = {
+      id: id,
+      name: "",
+      sex: "",
+      rela: "",
+      pho1: "",
+      pho2: "",
+      addr: "",
+      note: ""
+    };
+    let new_products = [...state.products, _product];
+    setState({ ...state, products: new_products });
+  }
 
-//   function handleProductTable(evt) {
-//     var item = {
-//       id: evt.target.id,
-//       name: evt.target.name,
-//       value: evt.target.value
-//     };
-//     var products = state.products.slice();
-//     var newProducts = products.map(function(product) {
-//       for (var key in product) {
-//         if (key == item.name && product.id == item.id) {
-//           product[key] = item.value;
-//         }
-//       }
-//       return product;
-//     });
-//     setState({ ...state, products: newProducts });
-//   }
+  function handleProductTable(evt) {
+    var item = {
+      id: evt.target.id,
+      name: evt.target.name,
+      value: evt.target.value
+    };
+    var products = state.products.slice();
+    var newProducts = products.map(function(product) {
+      for (var key in product) {
+        if (key === item.name && product.id === item.id) {
+          product[key] = item.value;
+        }
+      }
+      return product;
+    });
+    setState({ ...state, products: newProducts });
+  }
 
   return (
     <div>
       <ProductTable
-        onProductTableUpdate={props.handleProductTable}
-        onRowAdd={props.handleAddEvent}
-        onRowDel={props.handleRowDel}
-        products={props.products}
+        onProductTableUpdate={handleProductTable}
+        onRowAdd={handleAddEvent}
+        onRowDel={handleRowDel}
+        products={state.products}
       />
     </div>
   );
