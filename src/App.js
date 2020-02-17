@@ -3,6 +3,7 @@ import { Button, Steps, message } from "antd";
 import { DatePicker } from "antd";
 import TextInput from "./commonInput";
 import CommonRadio from "./commmonRadio";
+import Products from "./touchPersons";
 const { Step } = Steps;
 
 function App() {
@@ -150,7 +151,7 @@ function App() {
     },
     {
       title: "病例密切接触者情况",
-      content: "Last-content"
+      content: <Products state={sample["touched_persons"]} />
     },
     {
       title: "发病与就诊",
