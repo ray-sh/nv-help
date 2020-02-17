@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Steps, message } from "antd";
 import { DatePicker } from "antd";
 import TextInput from "./commonInput";
+import CommonRadio from "./commmonRadio";
 const { Step } = Steps;
 
 function App() {
@@ -20,14 +21,22 @@ function App() {
     setSample(_sample);
     console.log("new state", sample);
   }
-  function s1DateChange(date, dateString) {
-    //debugger;
-    console.log(date);
-    console.log(dateString);
 
-    const _sample = { ...sample, s1_date: date };
-    setSample(_sample);
+  function dateChange(id) {
+    const dchange = (date, dateString) => {
+      const _sample = { ...sample, [id]: date };
+      setSample(_sample);
+    };
+    return dchange;
   }
+  function radioChange(id) {
+    const change = event => {
+      const _sample = { ...sample, [id]: event.target.value };
+      setSample(_sample);
+    };
+    return change;
+  }
+
   const steps = [
     {
       title: "调查单位录入",
@@ -53,20 +62,91 @@ function App() {
           />
           <label>
             调查时间
-            <DatePicker value={sample["s1_date"]} onChange={s1DateChange} />
+            <DatePicker
+              value={sample["s1_date"]}
+              onChange={dateChange("s1_date")}
+            />
           </label>
         </>
-        // <div>
-        //   <Input placeholder="调查单位" />
-        //   <Input placeholder="调查者签名" />
-        //   <Input placeholder="联系方式" />
-        //   <DatePicker onChange={changeDanwei} />
-        // </div>
       )
     },
     {
       title: "病例基本信息",
-      content: "Second-content"
+      content: (
+        <>
+          <TextInput
+            id="s2_name"
+            placeholder="姓名"
+            handleChange={textInputChange}
+            value={sample["s2_name"]}
+          />
+          <TextInput
+            id="s2_id"
+            placeholder="身份证号"
+            handleChange={textInputChange}
+            value={sample["s2_id"]}
+          />
+          <CommonRadio
+            id="s2_sex"
+            placeholder="性别"
+            handleChange={radioChange("s2_sex")}
+            value={sample["s2_sex"]}
+            radios={["男", "女"]}
+          />
+          <br />
+          <label>
+            出生日期:
+            <DatePicker
+              value={sample["s2_birth"]}
+              onChange={dateChange("s2_birth")}
+            />
+          </label>
+          <br />
+          <TextInput
+            id="s2_addr"
+            placeholder="现住址"
+            handleChange={textInputChange}
+            value={sample["s2_addr"]}
+          />
+
+          <label>
+            发病日期:
+            <DatePicker
+              value={sample["s2_sickday"]}
+              onChange={dateChange("s2_sickday")}
+            />
+          </label>
+
+          <label>
+            确诊日期:
+            <DatePicker
+              value={sample["s2_confirmday"]}
+              onChange={dateChange("s2_confirmday")}
+            />
+          </label>
+          <br />
+          <CommonRadio
+            id="s2_sicktype"
+            placeholder="诊断类型"
+            handleChange={radioChange("s2_sicktype")}
+            value={sample["s2_sicktype"]}
+            radios={[
+              "疑似病例",
+              "临床诊断病例（仅限湖北省)",
+              "确诊病例",
+              "阳性监测（无症状感染者)"
+            ]}
+          />
+          <br />
+          <CommonRadio
+            id="s2_serious"
+            placeholder="临床严重程度"
+            handleChange={radioChange("s2_serious")}
+            value={sample["s2_serious"]}
+            radios={["无症状感染者", "轻型", "普通型", "重型", "危重型"]}
+          />
+        </>
+      )
     },
     {
       title: "病例密切接触者情况",
