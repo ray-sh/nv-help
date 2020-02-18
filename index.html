@@ -1,0 +1,2684 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>新型冠状病毒肺炎病例个案调查表</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <link rel="stylesheet" href="weui.css" />
+  <link rel="stylesheet" href="weuix.css" />
+  <link rel="stylesheet" href="page.css">
+</head>
+
+<body ontouchstart>
+  <div class="contianer page-bg">
+    <div class="weui-header--placeholder">
+      <div class="weui-header weui-header--full weui-header--fixed">
+        <div class="weui-header-left"></div>
+        <h1 class="weui-header-title">新型冠状病毒肺炎病例个案调查表</h1>
+        <div class="weui-header-right"></div>
+      </div><!-- /.weui-header -->
+    </div><!-- /.weui-header--placeholder -->
+    <div class="page-body">
+      <form id="apply_form" class="form">
+        <div class="weui-cells__hd">基本信息</div>
+        <div class="weui-cells__bd tips">
+          以下项目与大疫情传染病报告卡相同，相关信息直接转入个案调查信息系统，不需要在信息系统中重新录入。如调查信息与大疫情传染病报告卡信息不一致，请核对后在大疫情传染病报告卡中修改。
+        </div>
+        <section class="primary-informa">
+          <div class="detail-info username address">
+            <span class="sort">1.</span>
+            <div class="input-info">
+              <label for="username">姓名:</label>
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input" placeholder="" name="name" type="text" data-rule="姓名: required; username_full">
+                </div>
+              </div>
+            </div>
+            <div class="input-info">
+              <label for="parentId">身份证号：</label>
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input" placeholder="" name="idnumber" data-rule="身份证号: required; IDcard" type="text" id="parentId">
+                </div>
+              </div>
+            </div>
+            <div class="input-info">
+              <label for="parentName">;若为儿童，则监护人姓名：</label>
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input" placeholder="" type="text" name="guarder">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info usersex">
+            <span class="sort">2 .</span>
+            <label for="" id="sex" name="sex">性别</label>
+            <div class="weui-form input-info">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sex" id="sex_1" value="男" type="radio" data-rule="checked(1)">
+                <label for="sex_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>男</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sex" id="sex_2" value="女" type="radio">
+                <label for="sex_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>女</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <div class="detail-info clearfix birth address">
+            <span class="sort">3.</span>
+            <div class="weui-cell weui-cell-choose choose_data">
+              <div class="weui-cell__hd input_data"><label class="weui-label">出生日期：</label></div>
+              <div class="weui-cell__bd choose_inut">
+                <!-- <input class="weui-input" value="" type="date" name=""> -->
+                <input class="weui-input data_width" id="datetime_la"  type="text" name="birthday" placeholder="年/月/日">
+              </div>
+            </div>
+
+            <span>年龄（如出生日期不详，则实足年龄：</span>
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input age" placeholder="" name="age"  type="number" id="age_1">
+              </div>
+            </div>
+            <span>岁或 </span>
+          <div class="weui-cell">
+            <div class="weui-cell__bd">
+              <input class="weui-input age" placeholder="" name="age" type="number" id="age_2">
+            </div>
+          </div>
+          <span>月）</span>
+
+            <!-- <p>年龄（如出生日期不详，则实足年龄：<div class="weui-cells">
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="age_1" type="text" name="age">
+                  </div>
+                </div>
+              </div> 岁或 <div class="weui-cells">
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="age_2" type="text" name="age">
+                  </div>
+                </div>
+              </div> 月）</p> -->
+          </div>
+          <div class="detail-info address live_address">
+            <span class="sort">4.</span>
+            <label for="">现住址：</label>
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" name="sheng" data-rule="required;length(2~20)"  type="text">
+              </div>
+            </div>省
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" name="shi" data-rule="required;length(2~20)" type="text">
+              </div>
+            </div>市
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" name="xian" data-rule="required;length(2~20)" type="text">
+              </div>
+            </div>县(区)
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" name="xiang" data-rule="required;length(2~20)" type="text">
+              </div>
+            </div>乡(街道)
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" name="cun" data-rule="required;length(2~20)" type="text">
+              </div>
+            </div>村（小区）
+          </div>
+          <div class="detail-info address">
+            <span class="sort">5.</span>
+            <label for="">联系电话：</label>
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="" data-rule="联系电话: required; mobile_full" name="phone" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="detail-info inline_date">
+            <span class="sort">6.</span>
+            <div class="weui-cell weui-cell-choose">
+              <div class="weui-cell__hd"><label class="weui-label">发病日期：</label></div>
+              <div class="weui-cell__bd">
+                <!-- <input class="weui-input" value="" name="" type="date"> -->
+                <input class="weui-input data_width" id="datetime_lb" type="text" data-rule="发病日期: required;" name="sick_time" placeholder="年/月/日">
+              </div>
+            </div>
+          </div>
+          <div class="detail-info inline_date">
+            <span class="sort">7.</span>
+            <div class="weui-cell weui-cell-choose">
+              <div class="weui-cell__hd"><label class="weui-label">诊断日期：</label></div>
+              <div class="weui-cell__bd">
+                <!-- <input class="weui-input" value="" name="" type="date"> -->
+                <input class="weui-input data_width" id="datetime_lc" data-rule="诊断日期: required;" type="text" name="diagnosis_time"
+                  placeholder="年/月/日">
+
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">8.诊断类型：</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="diagnosis_type" id="diagnosis_type_1" value="疑似病例" type="radio" data-rule="checked(1)">
+                <label for="diagnosis_type_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>疑似病例</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="diagnosis_type" id="diagnosis_type_2" value="临床诊断病例（仅限湖北省）" type="radio">
+                <label for="diagnosis_type_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>临床诊断病例（仅限湖北省）</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="diagnosis_type" id="diagnosis_type_3" value="确诊病例" type="radio">
+                <label for="diagnosis_type_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>确诊病例</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="diagnosis_type" id="diagnosis_type_4" value="阳性监测（无症状感染者）" type="radio">
+                <label for="diagnosis_type_4">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>阳性监测（无症状感染者）</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="detail-info">
+            <span class="sort">9. 临床严重程度：</span>
+            <div class="weui-form">
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="clinical_severity" id="clinical_severity_1" value="无症状感染者" type="radio" data-rule="checked(1)">
+                <label for="clinical_severity_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无症状感染者</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="clinical_severity" id="clinical_severity_2" value="轻型" type="radio">
+                <label for="clinical_severity_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>轻型</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="clinical_severity" id="clinical_severity_3" value="普通型" type="radio">
+                <label for="clinical_severity_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>普通型</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="clinical_severity" id="clinical_severity_4" value="重型" type="radio">
+                <label for="clinical_severity_4">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>重型</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="clinical_severity" id="clinical_severity_5" value="危重型" type="radio">
+                <label for="clinical_severity_5">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>危重型</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <section class="touch-question clearfix">
+          <h3>二、密切接触者情况 </h3>
+          <div class="datatable">
+            <table class="table">
+              <thead>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>与病例关系</th>
+                <th>联系方式1</th>
+                <th>联系方式2</th>
+                <th>现住址</th>
+                <th>备注</th>
+              </thead>
+              <tbody id="rank">
+                <tr id="rank_item_0">
+                  <td>1</td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" name="user[0][]name" placeholder="" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" name="user[0][]gender" placeholder="" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td >
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" name="user[0][]relation" placeholder="" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="" name="user[0][]phone1" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="" name="user[0][]phone2" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="" name="user[0][]address" type="text">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weui-cell">
+                      <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="" name="user[0][]remark" type="text">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- /.datatable -->
+          <div id="add_col" class="add-cols">+</div>
+          <div id="reduce_col" class="add-cols reduce_cols">-</div>
+        </section>
+        <section>
+          <h3>三、发病与就诊 </h3>
+          <div class="detail-info address birth">
+            <span class="sort">10.症状和体征<span class="weui-cells__title">（可多选）</span></span>
+
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_1" value="寒战" type="checkbox">
+                <label for="symptoms_1">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>发热</p >
+                  </div>
+                </label>
+                <span>最高温度</span>
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" name="temperature" placeholder="" type="text">
+                  </div>
+                </div>
+                <span>℃</span>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_2" value="干咳" type="checkbox">
+                <label for="symptoms_2">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>干咳</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_3" value="咳痰" type="checkbox">
+                <label for="symptoms_3">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>咳痰</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_4" value="鼻塞" type="checkbox">
+                <label for="symptoms_4">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>鼻塞</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_5" value="流涕" type="checkbox">
+                <label for="symptoms_5">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>流涕</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_6" value="咽痛" type="checkbox">
+                <label for="symptoms_6">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>咽痛</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_7" value="头痛" type="checkbox">
+                <label for="symptoms_7">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>头痛</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_8" value="乏力" type="checkbox">
+                <label for="symptoms_8">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>乏力</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_9" value="肌肉酸痛" type="checkbox">
+                <label for="symptoms_9">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>肌肉酸痛</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_10" value="关节酸痛" type="checkbox">
+                <label for="symptoms_10">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>关节酸痛</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_11" value="气促" type="checkbox">
+                <label for="symptoms_11">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>气促</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_12" value="呼吸困难" type="checkbox">
+                <label for="symptoms_12">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>呼吸困难</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_13" value="胸闷" type="checkbox">
+                <label for="symptoms_13">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>胸闷</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_14" value="胸痛" type="checkbox">
+                <label for="symptoms_14">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>胸痛</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_15" value="结膜出血" type="checkbox">
+                <label for="symptoms_15">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>结膜出血</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_16" value="恶心" type="checkbox">
+                <label for="symptoms_16">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>恶心</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_17" value="呕吐" type="checkbox">
+                <label for="symptoms_17">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>呕吐</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_18" value="腹泻" type="checkbox">
+                <label for="symptoms_18">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>腹泻</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_19" value="腹痛" type="checkbox">
+                <label for="symptoms_19">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>腹痛</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="symptoms" id="symptoms_20" value="其他" type="checkbox">
+                <label for="symptoms_20">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>其他</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">11.有无并发症</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom_have" id="comm_symptom_have_1" value="有" type="radio" data-rule="checked(1)">
+                <label for="comm_symptom_have_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom_have" id="comm_symptom_have_2" value="无" type="radio">
+                <label for="comm_symptom_have_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="weui-cells__title ">如有，请选择（可多选）</div>
+            <div class="weui-form">
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_1" value="脑膜炎" type="checkbox">
+                <label for="comm_symptom_1">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>脑膜炎</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_2" value="脑炎" type="checkbox">
+                <label for="comm_symptom_2">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>脑炎</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_3" value="菌血症/Sepsis" type="checkbox">
+                <label for="comm_symptom_3">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>菌血症/Sepsis</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_4" value="心肌炎" type="checkbox">
+                <label for="comm_symptom_4">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>心肌炎</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_5" value="急性肺损伤/ARDS" type="checkbox">
+                <label for="comm_symptom_5">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>急性肺损伤/ARDS</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_6" value="急性肾损伤" type="checkbox">
+                <label for="comm_symptom_6">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>急性肾损伤</p>
+                  </div>
+                </label>
+              </div>
+
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_7" value="癫痫" type="checkbox">
+                <label for="comm_symptom_7">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>癫痫</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_8" value="继发细菌性肺炎" type="checkbox">
+                <label for="comm_symptom_8">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>继发细菌性肺炎</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="comm_symptom" id="comm_symptom_9" value="其他" type="checkbox">
+                <label for="comm_symptom_9">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>其他</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <div class="detail-info check">
+            <span class="sort">12. 血常规检查是否检测：</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="blood_check_is" id="blood_check_is_1" value="有" type="radio" data-rule="checked(1)">
+                <label for="blood_check_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="blood_check_is" id="blood_check_is_2" value="无" type="radio">
+                <label for="blood_check_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">若是，检测时间:：</label></div>
+                <div class="weui-cell__bd ">
+                  <!-- <input class="weui-input" value="" name="" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_ld" type="text" name="blood_check_time"
+                    placeholder="年/月/日">
+
+                </div>
+              </div>
+              <div class="weui-cells__title "> （若多次检测者填写首次检测结果）</div>
+              <div class="weui-cells__title ">检测结果：WBC（白细胞数）
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="blood_check_res_1" type="text">
+                  </div>
+                </div>
+                x 10^9/L
+              </div>
+              <div class="weui-cells__title ">L（淋巴细胞数）
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="blood_check_res_2" type="text">
+                  </div>
+                </div>
+                x 10^9/L
+              </div>
+              <div class="weui-cells__title ">L （淋巴细胞百分比）
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="blood_check_res_3" type="text">
+                  </div>
+                </div>
+                %
+              </div>
+              <div class="weui-cells__title ">N（中性粒细胞百分比）
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" id="blood_check_res_4" type="text">
+                  </div>
+                </div>
+                %
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">13.胸部Ｘ线检测是否有肺炎影像学特征</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="x_check_is" id="x_check_is_1" value="未检测" type="radio" data-rule="checked(1)">
+                <label for="x_check_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>未检测</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="x_check_is" id="x_check_is_2" value="无" type="radio">
+                <label for="x_check_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="x_check_is" id="x_check_is_3" value="有" type="radio">
+                <label for="x_check_is_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如有，检测时间：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_le" type="text" name="x_check_time"
+                    placeholder="年/月/日">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">14.胸部CT检测是否有肺炎影像学特征</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="ct_check_is" id="ct_check_is_1" value="未检测" type="radio" data-rule="checked(1)">
+                <label for="ct_check_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>未检测</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="ct_check_is" id="ct_check_is_2" value="无" type="radio">
+                <label for="ct_check_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="ct_check_is" id="ct_check_is_3" value="有" type="radio">
+                <label for="ct_check_is_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如有，检测时间：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_lf" type="text" name="ct_check_time"
+                    placeholder="年/月/日">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info jiuzhen">
+            <span class="sort">15.发病后是否就诊</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="doctor_is" id="doctor_is_1" value="无" type="radio" data-rule="checked(1)">
+                <label for="doctor_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="doctor_is" id="doctor_is_2" value="有" type="radio">
+                <label for="doctor_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如有，首次就诊日期：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="doctor_time" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_lg" type="text" name="doctor_time"
+                    placeholder="年/月/日">
+                </div>
+              </div>
+              <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">就诊医院名称：</label></div>
+                <div class="weui-cell hospital_name">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" name="doctor_hospital_name" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">16. 是否隔离</span>
+            <div class="weui-form">
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="quarantine_is" id="quarantine_is_1" value="无" type="radio" data-rule="checked(1)">
+                <label for="quarantine_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="quarantine_is" id="quarantine_is_2" value="有" type="radio">
+                <label for="quarantine_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如是，隔离开始日期：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_lh" type="text" name="quarantine_time"
+                    placeholder="年/月/日">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">17.是否住院</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="hospital_is" id="hospital_is_1" value="无" type="radio" data-rule="checked(1)">
+                <label for="hospital_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="hospital_is" id="hospital_is_2" value="有" type="radio">
+                <label for="hospital_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如是，入院日期：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="hospital_time" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_li" type="text" name="hospital_time"
+                    placeholder="年/月/日">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">18.是否收住ICU治疗</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="icu_is" id="icu_is_1" value="无" type="radio" data-rule="checked(1)">
+                <label for="icu_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="icu_is" id="icu_is_2" value="有" type="radio">
+                <label for="icu_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>有</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cell weui-cell-choose">
+                <div class="weui-cell__hd"><label class="weui-label">如是，入ICU日期：</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" name="icu_time" type="date"> -->
+                  <input class="weui-input data_width" id="datetime_lj" type="text" name="icu_time" placeholder="年/月/日">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>四、危险因素与暴露史 </h3>
+          <div class="detail-info">
+            <span class="sort">19.患者是否是以下特定职业人群</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_1" value="医务人员" type="radio"  data-rule="checked(1)">
+                <label for="occupation_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>医务人员</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_2" value="医院其他工作人员" type="radio">
+                <label for="occupation_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>医院其他工作人员</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_3" value="病原微生物检测人员" type="radio">
+                <label for="occupation_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>病原微生物检测人员</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_4" value="野生动物接触相关人员" type="radio">
+                <label for="occupation_4">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>野生动物接触相关人员</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_5" value="家禽、家畜养殖人员" type="radio">
+                <label for="occupation_5">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>家禽、家畜养殖人员</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="occupation" id="occupation_6" value="其他" type="radio">
+                <label for="occupation_6">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>其他</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">20.患者是否孕妇</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="pregnant_is" id="pregnant_is_1" value="是" type="radio"  data-rule="checked(1)">
+                <label for="pregnant_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="pregnant_is" id="pregnant_is_2" value="否" type="radio">
+                <label for="pregnant_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">21.既往病史<span class="weui-cells__title">（可多选）</span></span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_1" value="无" type="checkbox">
+                <label for="sick_history_1">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>无</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_2" value="高血压" type="checkbox">
+                <label for="sick_history_2">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>高血压</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_3" value="糖尿病" type="checkbox">
+                <label for="sick_history_3">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>糖尿病</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_4" value="心脑血管疾病" type="checkbox">
+                <label for="sick_history_4">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>心脑血管疾病</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_5" value="肺部疾病（如哮喘、肺心病 、肺纤维化、矽肺等）"
+                  type="checkbox">
+                <label for="sick_history_5">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>肺部疾病（如哮喘、肺心病 、肺纤维化、矽肺等）</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_6" value="慢性肾病" type="checkbox">
+                <label for="sick_history_6">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>慢性肾病 </p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_7" value="慢性肝病" type="checkbox">
+                <label for="sick_history_7">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>慢性肝病</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_8" value="免疫缺陷类疾病" type="checkbox">
+                <label for="sick_history_8">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>免疫缺陷类疾病</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_history" id="sick_history_9" value="其他" type="checkbox">
+                <label for="sick_history_9">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>其他</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>发病或检测阳性前14天内是否有以下暴露史：</h3>
+          <div class="detail-info">
+            <span class="sort">22.是否有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史</span>
+            <div class="weui-form">
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="live_history" id="live_history_1" value="旅行史" type="radio"  data-rule="checked(1)">
+                <label for="live_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>旅行史</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="live_history" id="live_history_2" value="居住史" type="radio">
+                <label for="live_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>居住史</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="live_history" id="live_history_3" value="否" type="radio">
+                <label for="live_history_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">23.是否接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的人</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="attach_history" id="attach_history_1" value="是" type="radio"  data-rule="checked(1)">
+                <label for="attach_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="attach_history" id="attach_history_2" value="否" type="radio">
+                <label for="attach_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">24.是否接触过有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史的</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="live_attach_history" id="live_attach_history_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="live_attach_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="live_attach_history" id="live_attach_history_2" value="否" type="radio">
+                <label for="live_attach_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">25.是否有确诊病例或无症状感染者的接触史</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_attach_history" id="sick_attach_history_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="sick_attach_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="sick_attach_history" id="sick_attach_history_2" value="否" type="radio">
+                <label for="sick_attach_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">26.患者同一家庭、工作单位、托幼机构或学校等集体单位是否有聚集性发病</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="party_attach_history" id="party_attach_history_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="party_attach_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="party_attach_history" id="party_attach_history_2" value="否" type="radio">
+                <label for="party_attach_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="party_attach_history" id="party_attach_history_3" value="不清楚" type="radio">
+                <label for="party_attach_history_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>不清楚</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">27.是否有医疗机构就诊史</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="hospital_check_history" id="hospital_check_history_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="hospital_check_history_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="hospital_check_history" id="hospital_check_history_2" value="否" type="radio">
+                <label for="hospital_check_history_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info address">
+            <span class="sort">28.居住地点(村庄/居民楼)周围是否有农贸市场</span>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_check" id="farm_check_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="farm_check_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-cells__title ">距离您家大约
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input" placeholder="" name="farm_distance" type="text">
+                  </div>
+                </div>
+                米
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_check" id="farm_check_2" value="否" type="radio">
+                <label for="farm_check_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_check" id="farm_check_3" value="不清楚" type="radio">
+                <label for="farm_check_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>不清楚</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <span class="sort">29.是否去过农贸市场</span>
+            <div class="weui-form">
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_is" id="farm_attach_is_1" value="是" type="radio" data-rule="checked(1)">
+                <label for="farm_attach_is_1">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>是</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_is" id="farm_attach_is_2" value="否" type="radio">
+                <label for="farm_attach_is_2">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>否</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_is" id="farm_attach_is_3" value="不清楚" type="radio">
+                <label for="farm_attach_is_3">
+                  <i class="weui-icon-radio"></i>
+                  <div class="weui-form-text">
+                    <p>不清楚</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="weui-cells__title ">若去过，病例是农贸市场的：</div>
+            <div class="weui-form">
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_role" id="farm_attach_role_1" value="市场从业人员" type="checkbox">
+                <label for="farm_attach_role_1">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>市场从业人员</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_role" id="farm_attach_role_2" value="供货／进货商" type="checkbox">
+                <label for="farm_attach_role_2">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>供货／进货商</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_role" id="farm_attach_role_3" value="消费者" type="checkbox">
+                <label for="farm_attach_role_3">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>消费者</p>
+                  </div>
+                </label>
+              </div>
+              <div class="weui-form-li iblock">
+                <input class="weui-form-checkbox" name="farm_attach_role" id="farm_attach_role_4" value="其他（含送饭、找人、途经等）"
+                  type="checkbox">
+                <label for="farm_attach_role_4">
+                  <i class="weui-icon-checkbox"></i>
+                  <div class="weui-form-text">
+                    <p>其他（含送饭、找人、途经等）</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>五、实验室检测 </h3>
+          <div class="detail-info libar">
+            <div class="datatable">
+              <table class="table">
+                <thead>
+
+                  <th>标本类型</th>
+                  <th>采样时间（年月日）</th>
+                  <th>检测结果（阳性/阴性/待测）</th>
+
+                </thead>
+                <tbody id="check">
+                  <tr>
+                    <td name="name">咽拭子 <input type="hidden" value="咽拭子" name="sars_lab[0][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" name="sample_time" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lz" type="text" name="sars_lab[0][]sample_time"
+                            placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_0" name="sars_lab[0][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>鼻拭子<input type="hidden" value="鼻拭子" name="sars_lab[1][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lk" type="text" name="sars_lab[1][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_1" name="sars_lab[1][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>痰液<input type="hidden" value="痰液" name="sars_lab[2][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_ll" type="text" name="sars_lab[2][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_2" name="sars_lab[2][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>气管分泌物<input type="hidden" value="气管分泌物" name="sars_lab[3][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lm" type="text" name="sars_lab[3][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_3" name="sars_lab[3][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>气管吸取物 <input type="hidden" value="气管吸取物" name="sars_lab[4][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_ln" type="text" name="sars_lab[4][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_4" name="sars_lab[4][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>肺泡灌洗液 <input type="hidden" value="肺泡灌洗液" name="sars_lab[5][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lo" type="text" name="sars_lab[5][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_5" name="sars_lab[5][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>血标本<input type="hidden" value="血标本" name="sars_lab[6][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lp" type="text" name="sars_lab[6][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_6" name="sars_lab[6][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>粪便<input type="hidden" value="粪便" name="sars_lab[7][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lq" type="text" name="sars_lab[7][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_7" name="sars_lab[7][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>其他（填写标本名称）<input type="hidden" value="其他" name="sars_lab[8][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_lr" type="text" name="sars_lab[8][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_8"  name="sars_lab[8][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>未采集（不填写采样时间和结果）<input type="hidden" value="未采集" name="sars_lab[9][]name"></td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <!-- <input class="weui-input" value="" type="date"> -->
+                          <input class="weui-input data_width" id="datetime_ls" type="text" name="sars_lab[9][]sample_time" placeholder="年/月/日">
+
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                          <input class="weui-input" placeholder="" id="sars_result_9" name="sars_lab[9][]result" type="text">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /.datatable -->
+          </div>
+        </section>
+
+        <section>
+          <div class="weui-btn-area">
+            <button type="button" id="submitbtn" class="weui-btn weui-btn_custom">保存</button>
+          </div>
+          <div class="weui-whitespace"></div>
+        </section>
+        <div id="pickerAreaLayer" class="city-picker-area-box">
+          <div class="hd">
+            <h3 class="title">新型冠状病毒肺炎病例个案调查表</h3>
+          </div>
+          <div class="bd" id="areaBox">
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__hd">
+                  <label class="weui-label">调查单位</label>
+                </div>
+                <div class="weui-cell__bd">
+                  <input class="weui-input" name="investigation_unit" id="investigation_unit" placeholder="请输入单位名称" type="text">
+                </div>
+              </div>
+              <div class="weui-cell">
+                <div class="weui-cell__hd">
+                  <label class="weui-label">调查者签名：</label>
+                </div>
+                <div class="weui-cell__bd">
+                  <input class="weui-input" name="investigation_user" id="investigation_user"  placeholder="请输入调查者签名" type="text">
+                </div>
+              </div>
+              <div class="weui-cell">
+                <div class="weui-cell__hd">
+                  <label class="weui-label">联系方式</label>
+                </div>
+                <div class="weui-cell__bd">
+                  <input class="weui-input" name="investigation_phone" id="investigation_phone"  placeholder="请输入联系方式" type="tel">
+                </div>
+              </div>
+              <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">调查时间:</label></div>
+                <div class="weui-cell__bd">
+                  <!-- <input class="weui-input" value="" type="date" placeholder="年/月/日"> -->
+                  <input class="weui-input data_width" id="datetime_lw" type="text" name="investigation_time" placeholder="年/月/日">
+                </div>
+              </div>
+              <div class="weui-btn-area">
+                <button type="button" id="savebtn" class="weui-btn weui-btn_custom">开始</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="cityPickerAreaMask" class="mask"></div>
+
+      </form>
+    </div><!-- /.page-body -->
+  </div>
+
+  <script id="user_item_tpl" type="text/html">
+  <tr id="rank_item_{{t_number}}" data-id="{{t_number}}">
+    <td>
+      {{t_number+1}}
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" name="user[{{t_number}}][]name" placeholder="" type="text">
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" name="user[{{t_number}}][]gender" placeholder="" type="text">
+        </div>
+      </div>
+    </td>
+    <td >
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" name="user[{{t_number}}][]relation" placeholder="" type="text">
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="" name="user[{{t_number}}][]phone1" type="text">
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="" name="user[{{t_number}}][]phone2" type="text">
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="" name="user[{{t_number}}][]address" type="text">
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="" name="user[{{t_number}}][]remark" type="text">
+        </div>
+      </div>
+    </td>
+  </tr>
+  </script>
+  <script src="jquery.min.js"></script>
+  <!-- <script src="/res/assets/case_form_assets/js/zepto.min.js"></script> -->
+  <script src="zepto.weui.min.js"></script>
+  <script src="jquery.validator.js"></script>
+  <script src="zh-CN.js"></script>
+
+  <script>
+    // 自增表
+    var row_count = 0;
+
+    // 获取当天的格式化日期
+		function getCurrentDate() {
+			var time = new Date();
+			var year = time.getFullYear();
+			var month = time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1;
+			var day = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
+			return year + '-' + month + '-' + day;
+		}
+
+    function applySave() {
+      console.log('========:');
+
+      var formData = $(form).serializeJSON();
+      console.log('formData:', formData);
+
+      // ----------------------------------------------------------------
+      var sex_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='sex_"+i+"']:checked").val();
+        if(item) {
+          sex_list.push(1);
+        } else {
+          sex_list.push(0);
+        }
+      }
+      // console.log('sex_list:', sex_list);
+
+      var diagnosis_type_list = [];
+      for (var i = 1; i <= 4; i++) {
+        var item = $("input[id='diagnosis_type_"+i+"']:checked").val();
+        if(item) {
+          diagnosis_type_list.push(1);
+        } else {
+          diagnosis_type_list.push(0);
+        }
+      }
+      // console.log('diagnosis_type_list:', diagnosis_type_list);
+
+      var clinical_severity_list = [];
+      for (var i = 1; i <= 5; i++) {
+        var item = $("input[id='clinical_severity_"+i+"']:checked").val();
+        if(item) {
+          clinical_severity_list.push(1);
+        } else {
+          clinical_severity_list.push(0);
+        }
+      }
+      // console.log('clinical_severity_list:', clinical_severity_list);
+
+      var symptoms_list = [];
+      for (var i = 1; i <= 20; i++) {
+        var item = $("input[id='symptoms_"+i+"']:checked").val();
+        if(item) {
+          symptoms_list.push(1);
+        } else {
+          symptoms_list.push(0);
+        }
+      }
+      // console.log('symptoms_list:', symptoms_list);
+
+      var comm_symptom_have_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='comm_symptom_have_"+i+"']:checked").val();
+        if(item) {
+          comm_symptom_have_list.push(1);
+        } else {
+          comm_symptom_have_list.push(0);
+        }
+      }
+
+      var comm_symptom_list = [];
+      for (var i = 1; i <= 9; i++) {
+        var item = $("input[id='comm_symptom_"+i+"']:checked").val();
+        if(item) {
+          comm_symptom_list.push(1);
+        } else {
+          comm_symptom_list.push(0);
+        }
+      }
+
+      var blood_check_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='blood_check_is_"+i+"']:checked").val();
+        if(item) {
+          blood_check_is_list.push(1);
+        } else {
+          blood_check_is_list.push(0);
+        }
+      }
+
+      var blood_check_res_list = [];
+      for (var i = 1; i <= 4; i++) {
+        var item = $("input[id='blood_check_res_"+i+"']").val();
+        if(item==null || item==''){
+        	blood_check_res_list.push(0);
+        }else{
+        	blood_check_res_list.push(item);
+        }
+      }
+
+      var x_check_is_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='x_check_is_"+i+"']:checked").val();
+        if(item) {
+          x_check_is_list.push(1);
+        } else {
+          x_check_is_list.push(0);
+        }
+      }
+
+      var ct_check_is_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='ct_check_is_"+i+"']:checked").val();
+        if(item) {
+          ct_check_is_list.push(1);
+        } else {
+          ct_check_is_list.push(0);
+        }
+      }
+
+      var doctor_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='doctor_is_"+i+"']:checked").val();
+        if(item) {
+          doctor_is_list.push(1);
+        } else {
+          doctor_is_list.push(0);
+        }
+      }
+
+      var quarantine_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='quarantine_is_"+i+"']:checked").val();
+        if(item) {
+          quarantine_is_list.push(1);
+        } else {
+          quarantine_is_list.push(0);
+        }
+      }
+
+      var hospital_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='hospital_is_"+i+"']:checked").val();
+        if(item) {
+          hospital_is_list.push(1);
+        } else {
+          hospital_is_list.push(0);
+        }
+      }
+
+      var icu_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='icu_is_"+i+"']:checked").val();
+        if(item) {
+          icu_is_list.push(1);
+        } else {
+          icu_is_list.push(0);
+        }
+      }
+
+      var occupation_list = [];
+      for (var i = 1; i <= 6; i++) {
+        var item = $("input[id='occupation_"+i+"']:checked").val();
+        if(item) {
+          occupation_list.push(1);
+        } else {
+          occupation_list.push(0);
+        }
+      }
+
+      var pregnant_is_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='pregnant_is_"+i+"']:checked").val();
+        if(item) {
+          pregnant_is_list.push(1);
+        } else {
+          pregnant_is_list.push(0);
+        }
+      }
+
+      var sick_history_list = [];
+      for (var i = 1; i <= 9; i++) {
+        var item = $("input[id='sick_history_"+i+"']:checked").val();
+        if(item) {
+          sick_history_list.push(1);
+        } else {
+          sick_history_list.push(0);
+        }
+      }
+
+      var live_history_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='live_history_"+i+"']:checked").val();
+        if(item) {
+          live_history_list.push(1);
+        } else {
+          live_history_list.push(0);
+        }
+      }
+
+      var attach_history_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='attach_history_"+i+"']:checked").val();
+        if(item) {
+          attach_history_list.push(1);
+        } else {
+          attach_history_list.push(0);
+        }
+      }
+
+      var live_attach_history_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='live_attach_history_"+i+"']:checked").val();
+        if(item) {
+          live_attach_history_list.push(1);
+        } else {
+          live_attach_history_list.push(0);
+        }
+      }
+
+      var sick_attach_history_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='sick_attach_history_"+i+"']:checked").val();
+        if(item) {
+          sick_attach_history_list.push(1);
+        } else {
+          sick_attach_history_list.push(0);
+        }
+      }
+
+      var party_attach_history_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='party_attach_history_"+i+"']:checked").val();
+        if(item) {
+           party_attach_history_list.push(1);
+        } else {
+           party_attach_history_list.push(0);
+        }
+      }
+
+      var hospital_check_history_list = [];
+      for (var i = 1; i <= 2; i++) {
+        var item = $("input[id='hospital_check_history_"+i+"']:checked").val();
+        if(item) {
+          hospital_check_history_list.push(1);
+        } else {
+          hospital_check_history_list.push(0);
+        }
+      }
+
+      var farm_check_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='farm_check_"+i+"']:checked").val();
+        if(item) {
+          farm_check_list.push(1);
+        } else {
+          farm_check_list.push(0);
+        }
+      }
+
+      var farm_attach_is_list = [];
+      for (var i = 1; i <= 3; i++) {
+        var item = $("input[id='farm_attach_is_"+i+"']:checked").val();
+        if(item) {
+          farm_attach_is_list.push(1);
+        } else {
+          farm_attach_is_list.push(0);
+        }
+      }
+
+      var farm_attach_role_list = [];
+      for (var i = 1; i <= 4; i++) {
+        var item = $("input[id='farm_attach_role_"+i+"']:checked").val();
+        if(item) {
+          farm_attach_role_list.push(1);
+        } else {
+          farm_attach_role_list.push(0);
+        }
+      }
+
+      var age_1 = $.trim($('#age_1').val());
+      var age_2 = $.trim($('#age_2').val());
+      var age_list = [0,0];
+      if(age_1 == ''){
+        age_list[0] = 0;
+        age_list[1] = age_2;
+      } else {
+        age_list[0] = age_1;
+        age_list[1] = 0;
+      }
+
+      // -------------------封装拼接属性-----------------------------------
+      var sars_labList = formData.sars_lab;
+      var sars_labList_Array = [];
+      $.each(sars_labList, function(index, value) {
+        sars_labList_Array.push({
+          "number": "", // 采样序号
+          "name": value.name, // 样本名称
+          "sample_time": value.sample_time, // 采样时间
+          "result": value.result, // 采样结果
+          "remark": "" // 备注（针对其他样本）
+        });
+      });
+      //console.info('sars_labList_Array:', sars_labList_Array);
+
+      var userList = formData.user;
+      var userList_Array = [];
+      $.each(userList, function(index, value) {
+        userList_Array.push({
+          "name": value.name, // 密切接触者人员名称
+          "gender": value.gender, // 性别
+          "relation": value.relation, // 与样本人员关系
+          "phone1": value.phone1, // 联系方式1
+          "phone2": value.phone2, // 联系电话2
+          "address": value.address, // 地址
+          "remark": value.remark // 备注
+        });
+      });
+
+      //console.info('userList_Array:', userList_Array);
+
+      var data = {
+        // "no": formData["no"] || "", // 问卷编号
+        "idnumber": formData["idnumber"] || "", // 身份证号
+        "name": formData["name"] || "", // 姓名
+        "guarder": formData["guarder"] || "", // 监护人姓名
+        "sex": sex_list.toString(), // 性别
+        "birthday": formData["birthday"] || "", // 出生日期
+        "phone":formData["phone"] || "", // 联系电话
+        "age": age_list.toString(), // 年龄
+        "sheng": formData["sheng"] || "", // 省
+        "shi": formData["shi"] || "", // 市
+        "xian": formData["xian"] || "", // 县(区)
+        "xiang": formData["xiang"] || "", // 乡(街道)
+        "cun": formData["cun"] || "", // 村(小区)
+        "sick_time": formData["sick_time"] || "", // 发病日期
+        "investigation_phone": formData["investigation_phone"] || "", // 联系方式
+        "attach_history": attach_history_list.toString(), // 是否接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的人
+        "blood_check_is": blood_check_is_list.toString(), // 是否检测血常规
+        "blood_check_res": blood_check_res_list.toString(), // 血常规检测结果
+        "blood_check_time": formData["blood_check_time"] || "", // 血常规首次检查时间
+        "clinical_severity": clinical_severity_list.toString(), // 临床严重程度
+        "comm_symptom": comm_symptom_list.toString(), // 并发症特征
+        "comm_symptom_have": comm_symptom_have_list.toString(), // 有无并发症
+        "ct_check_is": ct_check_is_list.toString(), // 胸部CT是否检查
+        "ct_check_time": formData["ct_check_time"] || "", // 胸部CT检查结果
+        "diagnosis_time": formData["diagnosis_time"] || "", // 诊断日期
+        "diagnosis_type": diagnosis_type_list.toString(), // 诊断类型
+        "doctor_hospital_name": formData["doctor_hospital_name"] || "", // 发病后就诊医院
+        "doctor_is": doctor_is_list.toString(), // 发病后是否就诊
+        "doctor_time": formData["doctor_time"] || "", // 发病后首次就诊时间
+        "farm_attach_is": farm_attach_is_list.toString(), // 是否去过农贸市场
+        "farm_attach_role": farm_attach_role_list.toString(), // 在农贸市场接触的人
+        "farm_check": farm_check_list.toString(), // 是否具有农贸市场
+        "farm_distance": formData["farm_distance"] || "", // 距离农贸市场的距离
+        "hospital_is": hospital_is_list.toString(), // 是否住院
+        "hospital_time": formData["hospital_time"] || "", // 住院时间
+        "icu_is": icu_is_list.toString(), // 是否入住ICU
+        "icu_time": formData["icu_time"] || "", // ICU入住时间
+        "live_history": live_history_list.toString(), // 是否有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史
+        "occupation": occupation_list.toString(), // 患者职业
+        "pregnant_is": pregnant_is_list.toString(), // 是否为孕妇
+        "quarantine_is":quarantine_is_list.toString(), // 是否隔离
+        "quarantine_time": formData["quarantine_time"] || "", // 隔离时间
+        "sick_history": sick_history_list.toString(), // 既往病史
+        "symptoms": symptoms_list.toString(), // 症状和体征
+        "temperature": formData["temperature"] || "", // 体温度数
+        "x_check_is": x_check_is_list.toString(), // 胸部X线是否检查
+        "x_check_time": formData["x_check_time"] || "" ,// 胸部X线检测时间
+        "live_attach_history": live_attach_history_list.toString(),
+        "sick_attach_history": sick_attach_history_list.toString(),
+        "party_attach_history": party_attach_history_list.toString(),
+        "hospital_check_history": hospital_check_history_list.toString(),
+        "investigation_unit": formData["investigation_unit"] || "",
+        "investigation_user": formData["investigation_user"] || "",
+        "investigation_time": formData["investigation_time"] || "",
+        "userFormListJSON": JSON.stringify(userList_Array),
+        "sampleListJSON": JSON.stringify(sars_labList_Array)
+      };
+
+
+      console.log('data:', data);
+      //console.log('data--:', JSON.stringify(data));
+
+      return data;
+    }
+
+    function applyValidator(form) {
+        $(form).validator({
+        stopOnError: true,
+        msgClass: 'n-bottom',
+        valid: function(form) {
+          var that = this;
+          // 提交表单之前，hold住表单，防止重复提交
+          // that.holdSubmit();
+
+          var formData = applySave(form);
+          console.log('formData:', formData);
+
+          // ------------------------------------------------------
+          $.showLoading('数据提交中...');
+          // $.ajax({
+          //   type: 'POST',
+          //   url: '/case/form/save.jspx',
+          //   data: formData,
+          //   dataType: 'json',
+          //   beforeSend: function(xhr) {},
+          //   success: function(result) {
+          //     // that.holdSubmit(false);
+          //     $.hideLoading();
+          //     $.toast("提交成功!");
+          //     if (result.code == "200" && result.body.id && result.body.id != '') {
+          //       var url = "/case/form/result.jspx?id=" + result.body.id;
+          //       if (result.body.hot && result.body.hot == "hot") {
+          //         url = url + "&hot=hot";
+          //       }
+          //       window.location.href = url;
+          //     } else {
+          //       $.toast("请稍后再试", "forbidden");
+          //     }
+          //   },
+          //   error: function(xhr) {
+          //     that.holdSubmit(false);
+          //     $.hideLoading();
+          //     $.toast('服务出错了~', 'forbidden');
+          //   }
+          // });
+        }
+      });
+    }
+
+
+    $(function () {
+      // 模态框
+      $(document).on('click', "#p_address", function (event) {
+        $('#cityPickerAreaMask').fadeIn();
+        $('#pickerAreaLayer').animate({bottom: 0});
+      });
+
+      $('#cityPickerAreaMask, #closeArea').click(function () {
+        clockArea();
+      });
+
+      var currentDate = getCurrentDate();
+
+      $("#datetime_lw").datetimePicker({
+        title: '调查时间',
+        max: currentDate || "",
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      // 时间
+      //保存数据
+      function ConvertToCSV(objArray) {
+            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+            var str = '';
+
+            for (var i = 0; i < array.length; i++) {
+                var line = '';
+                for (var index in array[i]) {
+                    if (line != '') line += ','
+
+                    line += array[i][index];
+                }
+
+                str += line + '\r\n';
+            }
+
+            return str;
+        }
+      $('#submitbtn').click(function() {
+          console.log('save date');
+          var formData = $("form").serializeArray();
+            let csv = "data:text/csv;charset=utf-8,"; // accept data as CSV
+
+            formData.forEach(function(item) {
+              csv += item.value + ";"; // concat form value on csv var and add ; to create columns (you can change to , if want)
+            });
+
+            var encodedUri = encodeURI(csv);
+
+            // if you want to download
+            var downloadLink = document.createElement("a");
+            downloadLink.setAttribute("download", "FILENAME.csv");
+            downloadLink.setAttribute("href", encodedUri);
+            document.body.appendChild(downloadLink); // Required for FF
+            downloadLink.click();
+            downloadLink.remove();
+        }
+      );
+
+
+      $('#savebtn').click(function () {
+        if ($.trim($('#investigation_unit').val()) == '') {
+          $.toast("请输入调查单位不能为空!", 'text');
+          return false;
+        }
+
+        if ($.trim($('#investigation_user').val()) == '') {
+          $.toast("请输入调查者签名不能为空!", 'text');
+          return false;
+        } else {
+          var regExpName = /^(([a-zA-Z+\.?\·?a-zA-Z+]{2,30}$)|([\u4e00-\u9fa5+\·?\u4e00-\u9fa5+]{2,30}$))/;
+          if (!regExpName.test($.trim($('#investigation_user').val()))) {
+            $.toast("请输入正确的姓名!", 'text');
+            return false;
+          }
+        }
+
+        // 联系方式
+        if ($.trim($('#investigation_phone').val()) == '') {
+          $.toast("请输入手机号码不能为空!", 'text');
+          return false;
+        } else {
+          var regExpPhoneNumber = /^((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)$/;
+          if (!regExpPhoneNumber.test($.trim($('#investigation_phone').val()))) {
+            $.toast("请输入正确的电话号码!", 'text');
+            return false;
+          }
+        }
+
+
+      // 调查时间
+      if ($('#datetime_lw').val() == '') {
+          $.toast("请选调查时间!", 'text');
+          return false;
+        }
+
+        $('#pickerAreaLayer').hide()
+        $('#cityPickerAreaMask').hide()
+
+      });
+
+
+      $("#datetime_la").datetimePicker({
+        title: '出生日期',
+        max: currentDate || "",
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+
+      $("#datetime_lb").datetimePicker({
+        title: '发病日期',
+        max: currentDate || "",
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lc").datetimePicker({
+        title: '诊断日期',
+        max: currentDate || "",
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_ld").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_le").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lf").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lg").datetimePicker({
+        title: '首次就诊时间',
+        years: [2020],
+        max: currentDate || "",
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lh").datetimePicker({
+        title: '隔离时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_li").datetimePicker({
+        title: '入院时间',
+        max: currentDate || "",
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lj").datetimePicker({
+        title: '入住ICU时间',
+        max: currentDate || "",
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lk").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+
+      $("#datetime_ll").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lm").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_ln").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lo").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lp").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lq").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lr").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_ls").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+      $("#datetime_lz").datetimePicker({
+        title: '检测时间',
+        years: [2020],
+        times: function () {return [];},
+        parse: function (str) {
+          return str.split("-");
+        },
+        onChange: function (picker, values, displayValues) {
+          // console.log(values);
+        }
+      });
+
+      $("#sars_result_0").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+
+      $("#sars_result_1").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_2").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_3").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_4").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_5").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_6").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_7").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_8").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+      $("#sars_result_9").picker({
+        title: "请选择检测结果",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['阳性','阴性','待测']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          // console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          // console.log('onClose:', p, v, d);
+        }
+    	});
+
+
+      $('#add_col').click(function() {
+        row_count++;
+        var row_html = template('user_item_tpl', {
+          t_number: row_count
+        });
+        $('#rank').append(row_html)
+      });
+      $('#reduce_col').click(function() {
+        // 若表单没有数据时 ，不允许再次减少
+        if(row_count>0){
+        	var str = $('#rank').find("#rank_item_"+row_count);
+            str.remove();
+            row_count--;
+        }
+      });
+
+      // 表单验证初始化
+      applyValidator('#apply_form');
+    });
+
+  </script>
+</body>
+</html>
